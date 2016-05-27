@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Leaflet Getting Started</title>
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <script src="js/leaflet.js"></script>
+
+</head>
+<body>
+
+<div id="map"></div>
+
+
+
+<script type="text/javascript">
+
+    var latitude = 38.9047;
+    var longitude = 77.0164;
+    var zoomLevel = 1;
+
+    var map = L.map('map')
+//            .setView([latitude, longitude], zoomLevel);
+            .setView([0, 0], 2);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        maxZoom: 18,
+        id: 'joeycf.p6bdeieh',
+        accessToken: 'pk.eyJ1Ijoiam9leWNmIiwiYSI6ImNpa3JlajdrdTAwcGF2Mmx3eTUwYm16cDAifQ.agAkNv_6bDV2_SdOCVkqTA'
+    }).addTo(map);
+
+    var marker = L.marker([38.8977, 77.0366]).addTo(map); // adds marker to White House
+
+    var circle = L.circle([38.9968, -77.025], 100,
+        {
+            color: 'orange',
+            fillColor: 'yellow',
+            fillOpacity: 0.3
+        }).addTo(map); // adds radius around DTSS
+
+</script>
+
+<!--Script References-->
+<!--<script src="js/leaflet.js"></script>-->
+
+</body>
+</html>
